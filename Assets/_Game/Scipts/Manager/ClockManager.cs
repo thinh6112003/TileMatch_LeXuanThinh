@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class ClockManager : MonoBehaviour
+public class ClockManager : Singleton<ClockManager>
 {
-    public static ClockManager instance;
     public static int time = 0;
     bool play = true;
-    private void Start()
-    {
-        instance = this;
-    }
     public void startClock()
     {
         time = 0;

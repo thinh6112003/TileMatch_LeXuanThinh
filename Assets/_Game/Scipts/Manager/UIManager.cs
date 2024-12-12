@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private GameObject mapLevelScene;
     [SerializeField] private GameObject gamePlayScene;
@@ -18,14 +18,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI coinInGameText;
     [SerializeField] private TextMeshProUGUI LevelText;
-    public static UIManager Instance;
     private GameObject currentScene;
     private GameObject beforeScene;
     private GameObject currentPopup;
     private void Start()
-    {
-        Instance = this;
-        
+    {        
         navigateToScene("Home");
     }
     public void navigateToScene(string nameScene)

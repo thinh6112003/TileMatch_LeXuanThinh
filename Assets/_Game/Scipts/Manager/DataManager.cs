@@ -1,7 +1,6 @@
 using UnityEngine;
-public class DataManager : MonoBehaviour
-{
-    public static DataManager Instance;
+public class DataManager : Singleton<DataManager>
+{ 
     public LevelSO levelSO;
     public SpriteSO spriteSO;
     public int coin = 100;
@@ -16,7 +15,6 @@ public class DataManager : MonoBehaviour
             dynamicData.coin = 10;
         }
         coin = dynamicData.coin;
-        Instance = this;
     }
     private void Start()
     {
@@ -36,7 +34,7 @@ public class DataManager : MonoBehaviour
         dynamicData.coin = coin;
         string dynamicDataString = JsonUtility.ToJson(dynamicData);
         PlayerPrefs.SetString("dynamicData", dynamicDataString);
-        //PlayerPrefs.DeleteKey("dynamicData");  // reset playerpref
+        // 
     }
     private void OnApplicationQuit()
     {
@@ -62,6 +60,10 @@ public class Notifi
     public static string PAUSE_GAME = "Pause";
     public static string DEFEAT_GAME = "Defeat";
     public static string VICTORY_GAME = "Victory";
+}
+public static class NamePools
+{
+    public static string TILE = nameof(Tile);
 }
 
 

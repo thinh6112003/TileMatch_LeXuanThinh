@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Intance;     // singleton
-
     [SerializeField] private CollectBox collectBox;
     [SerializeField] private TilesGrid tileGrid;
     [SerializeField] private GameObject background;
@@ -14,7 +12,6 @@ public class GameManager : MonoBehaviour
     private Sprite originBackground;
     private void Awake()
     {
-        Intance = this;    // singleton 
         //target frame rate ve 60 fps
         Application.targetFrameRate = 60;
         isEndGame = false;
@@ -22,13 +19,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        tileGrid.gameObject.SetActive(false);
         Observer.AddListener("BackToGame", ActiveGamePlay);
         Observer.AddListener(Notifi.PAUSE_GAME, PauseGame);
-        tileGrid.gameObject.SetActive(false);
         Observer.AddListener(Notifi.DEFEAT_GAME, HandleDefeat);
-        Observer.AddListener(Notifi.DEFEAT_GAME, ClockManager.instance.stopClock);
+        Observer.AddListener(Notifi.DEFEAT_GAME, ClockManager.Instance.stopClock);
         Observer.AddListener(Notifi.VICTORY_GAME, HandleVictory);
-        Observer.AddListener(Notifi.VICTORY_GAME, ClockManager.instance.stopClock);
+        Observer.AddListener(Notifi.VICTORY_GAME, ClockManager.Instance.stopClock);
     }
     private void Update()
     {
@@ -54,7 +51,7 @@ public class GameManager : MonoBehaviour
         // iDlevel = - 1 Init level hiện tại
         // iDlevel = -2 Init level mới chơi(khi bấm chơi lại)
         // iDlevel > 0 Init level duoc chon
-        ClockManager.instance.startClock();
+        ClockManager.Instance.startClock();
         if (iDLevel == -1 && DataManager.dynamicData.currentLevel == 11)
         {
             // TH đã chơi hết các màn 

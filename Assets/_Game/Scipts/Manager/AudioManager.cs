@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    public static AudioManager Instance;
     [Header("--- Audio Source ----------")]
     public AudioSource musicSource;
     public AudioSource SoundSource;
@@ -18,7 +17,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Instance = this;
         musicSource.clip = backgroundMusic;
         musicSource.Play();
     }
