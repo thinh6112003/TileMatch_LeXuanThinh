@@ -100,7 +100,6 @@ public class GameManager : Singleton<GameManager>
     private void ShowDefeat()
     {
         UIManager.Instance.loadPopup("Defeat");
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.gameDefeat);
     }
     private void HandleVictory()
     {
@@ -114,7 +113,6 @@ public class GameManager : Singleton<GameManager>
         DataManager.Instance.coin += 10;
         Debug.Log("tang coin");
         UIManager.Instance.setCoin();
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.gameVictory);
     }
     internal void SelectTileListener()
     {
@@ -122,7 +120,6 @@ public class GameManager : Singleton<GameManager>
         {
             tileSelect = getTileSelect();
             if (tileSelect == null) return;
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.tapTile);
             tileSelect.selectTile();
         }
         if ((Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) && tileSelect != null)
@@ -137,7 +134,6 @@ public class GameManager : Singleton<GameManager>
             newTileAdd.DeactiveCollider();
             tileGrid.UpdateGrid(newTileAdd.gameObject);
             collectBox.AddTile(newTileAdd);
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.fly);
             tileSelect = null;
         }
     }

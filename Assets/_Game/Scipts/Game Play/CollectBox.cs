@@ -142,13 +142,10 @@ public class CollectBox : MonoBehaviour
     }
     private void HideMatchTile(List<Tile> listMatchTile)
     {
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.matchTile);
         for (int i = 0; i < matchTileNumber; i++)
         {
             listMatchTile[i].gameObject.transform.DOScale(new Vector3(0, 0), hideMatchTileTime);
-            GameObject newTileEffect = Instantiate(tileEffect);
-            newTileEffect.transform.position = listMatchTile[i].gameObject.transform.position + tileEffectOffset;
-            Destroy(newTileEffect, 1.5f);
+
             Destroy(listMatchTile[i].gameObject, 1.5f);
         }
     }
