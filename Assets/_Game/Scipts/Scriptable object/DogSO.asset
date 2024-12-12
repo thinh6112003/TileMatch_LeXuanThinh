@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DogSO
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 85c5a037bfd90674885b35390cb028c7, type: 2}
-  - {fileID: 21300000, guid: 5ad24bc7f69364842967024740884651, type: 2}
-  - {fileID: 21300000, guid: feaf43fafbbc89b429899c5802d8dc11, type: 2}
-  - {fileID: 21300000, guid: 02c4acd6bb0d1854b976d3b5ea49224b, type: 2}
-  - {fileID: 21300000, guid: 7aabe0f461fd79e4d99b759be04ab80d, type: 2}
-  - {fileID: 21300000, guid: e4e8a615829c95c4abecfe2f86c8950b, type: 2}
-  - {fileID: 21300000, guid: d3c5c4b688daa524fbf39dc1d60b90c2, type: 2}
+  - {fileID: -933992504, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: -1617795960, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: 656915721, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: 835878593, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: 1960289612, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: 1886405713, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
+  - {fileID: -1133588605, guid: 8f40ae35a7113e54496d5f8632e5c989, type: 3}
